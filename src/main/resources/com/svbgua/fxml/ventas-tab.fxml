@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.svbgua.ui.VentasController">
+    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+    <top>
+        <VBox spacing="8">
+            <padding><Insets top="0" right="0" bottom="12" left="0"/></padding>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button text="Actualizar" onAction="#cargar"/>
+                <Label text="Artista:"/>
+                <ComboBox fx:id="cbArtista" prefWidth="220"/>
+                <Label text="Desde:"/>
+                <DatePicker fx:id="dpDesde" prefWidth="140"/>
+                <Label text="Hasta:"/>
+                <DatePicker fx:id="dpHasta" prefWidth="140"/>
+                <Button text="Limpiar filtros" onAction="#limpiarFiltros"/>
+            </HBox>
+            <Label fx:id="lblResumen" styleClass="dato"/>
+        </VBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tabla">
+            <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+            <placeholder><Label text="No hay ventas registradas."/></placeholder>
+            <columns>
+                <TableColumn fx:id="cId" text="No. venta"/>
+                <TableColumn fx:id="cFecha" text="Fecha"/>
+                <TableColumn fx:id="cVendedor" text="Vendedor"/>
+                <TableColumn fx:id="cBoletos" text="Boletos"/>
+                <TableColumn fx:id="cTotal" text="Total"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <right>
+        <VBox spacing="8" prefWidth="430">
+            <padding><Insets top="0" right="0" bottom="0" left="16"/></padding>
+            <Label text="Detalle de la venta" styleClass="seccion-titulo"/>
+            <ListView fx:id="detalle" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </right>
+</BorderPane>

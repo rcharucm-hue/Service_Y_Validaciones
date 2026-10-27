@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Una tarjeta de la lista "Elige tu concierto". -->
+<Button xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+        fx:id="raiz" fx:controller="com.svbgua.kiosco.ConciertoOpcionController" styleClass="opcion-concierto">
+    <graphic>
+        <VBox spacing="2">
+            <Label fx:id="lblNombre" styleClass="opcion-titulo" wrapText="true"/>
+            <Label fx:id="lblDetalle" styleClass="opcion-detalle" wrapText="true"/>
+        </VBox>
+    </graphic>
+</Button>

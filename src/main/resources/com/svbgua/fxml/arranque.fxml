@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Pantalla de arranque del autoservicio mientras se conecta con el servidor. -->
+<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" styleClass="raiz">
+    <VBox alignment="CENTER" spacing="18" maxWidth="-Infinity" maxHeight="-Infinity">
+        <Label text="VENTA DE TICKETS UMG" styleClass="logo"/>
+        <ProgressIndicator prefWidth="72" prefHeight="72" minWidth="72" minHeight="72" maxWidth="72" maxHeight="72"/>
+        <Label text="Iniciando autoservicio..." styleClass="res-titulo"/>
+    </VBox>
+</StackPane>

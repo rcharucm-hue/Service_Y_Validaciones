@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.svbgua.ui.MainController">
+
+    <top>
+        <HBox styleClass="header" spacing="14" alignment="CENTER_LEFT">
+            <padding><Insets top="12" right="18" bottom="12" left="18"/></padding>
+            <Label text="Venta de Tickets UMG" styleClass="header-titulo"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblUsuario" styleClass="header-usuario"/>
+            <Button text="Cerrar sesión" onAction="#cerrarSesion"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TabPane fx:id="tabs" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tabBoletos" text="Comprar boletos">
+                    <content><fx:include fx:id="boletos" source="boletos-tab.fxml"/></content>
+                </Tab>
+                <Tab fx:id="tabVentas" text="Historial de ventas">
+                    <content><fx:include fx:id="ventas" source="ventas-tab.fxml"/></content>
+                </Tab>
+                <Tab fx:id="tabAdmin" text="Administración">
+                    <content>
+                        <TabPane tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                                <Tab text="Artistas">
+                                    <content><fx:include fx:id="artistas" source="artistas-tab.fxml"/></content>
+                                </Tab>
+                                <Tab text="Localidades">
+                                    <content><fx:include fx:id="localidades" source="localidades-tab.fxml"/></content>
+                                </Tab>
+                                <Tab text="Conciertos">
+                                    <content><fx:include fx:id="conciertos" source="conciertos-tab.fxml"/></content>
+                                </Tab>
+                                <Tab text="Inventario y precios">
+                                    <content><fx:include fx:id="inventario" source="inventario-tab.fxml"/></content>
+                                </Tab>
+                                <Tab text="Gestión de usuarios">
+                                    <content><fx:include fx:id="usuarios" source="usuarios-tab.fxml"/></content>
+                                </Tab>
+                                <Tab fx:id="tabReportes" text="Reportes">
+                                    <content><fx:include fx:id="reportes" source="reportes-tab.fxml"/></content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+</BorderPane>

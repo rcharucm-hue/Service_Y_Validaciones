@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Paso 3: resumen de la compra y datos de la tarjeta (titular, número y CVV, ficticios). -->
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.svbgua.kiosco.Paso3Controller">
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll-resumen">
+            <GridPane fx:id="contenido" hgap="28" vgap="20">
+                <padding><Insets top="18" right="28" bottom="10" left="28"/></padding>
+                <columnConstraints>
+                    <ColumnConstraints fx:id="colResumen" percentWidth="50"/>
+                    <ColumnConstraints fx:id="colTarjeta" percentWidth="50"/>
+                </columnConstraints>
+
+                <!-- Resumen de la compra -->
+                <VBox fx:id="resumen" styleClass="panel-seleccion" spacing="12"
+                      GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <Label text="TU COMPRA" styleClass="panel-titulo"/>
+                    <ScrollPane fx:id="scrollLineas" fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll-resumen">
+                        <VBox fx:id="lineas" spacing="8"/>
+                    </ScrollPane>
+                    <Label fx:id="lblFactura" styleClass="res-subtitulo"/>
+                    <VBox spacing="2">
+                        <Label text="TOTAL A PAGAR" styleClass="barra-etiqueta"/>
+                        <Label fx:id="lblTotal" styleClass="total-valor"/>
+                    </VBox>
+                </VBox>
+
+                <!-- Tarjeta: el teclado cambia según el campo activo -->
+                <VBox fx:id="bloqueTarjeta" spacing="12" minWidth="0"
+                      GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <VBox spacing="4">
+                        <Label text="NOMBRE DEL TITULAR" styleClass="barra-etiqueta"/>
+                        <Label fx:id="campoTitular" styleClass="campo-display, campo-chico" maxWidth="Infinity"
+                               onMouseClicked="#activarTitular"/>
+                    </VBox>
+                    <HBox spacing="12">
+                        <VBox spacing="4" HBox.hgrow="ALWAYS">
+                            <Label text="NÚMERO DE TARJETA" styleClass="barra-etiqueta"/>
+                            <Label fx:id="campoTarjeta" styleClass="campo-display, campo-chico" maxWidth="Infinity"
+                                   onMouseClicked="#activarNumero"/>
+                        </VBox>
+                        <VBox spacing="4" minWidth="150" prefWidth="150">
+                            <Label text="CVV" styleClass="barra-etiqueta"/>
+                            <Label fx:id="campoCvv" styleClass="campo-display, campo-chico" maxWidth="Infinity"
+                                   onMouseClicked="#activarCvv"/>
+                        </VBox>
+                    </HBox>
+                    <VBox spacing="4">
+                        <Label text="CORREO PARA ENVIARTE EL COMPROBANTE (OPCIONAL)" styleClass="barra-etiqueta"/>
+                        <Label fx:id="campoCorreo" styleClass="campo-display, campo-chico" maxWidth="Infinity"
+                               onMouseClicked="#activarCorreo"/>
+                    </VBox>
+                    <StackPane>
+                        <fx:include fx:id="tecTitular" source="teclado-texto.fxml"/>
+                        <fx:include fx:id="tecNumero" source="teclado-numerico.fxml"/>
+                        <fx:include fx:id="tecCvv" source="teclado-numerico.fxml"/>
+                        <fx:include fx:id="tecCorreo" source="teclado-correo.fxml"/>
+                    </StackPane>
+                </VBox>
+            </GridPane>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox fx:id="barra" styleClass="barra-inferior" spacing="18" alignment="CENTER_LEFT">
+            <Region fx:id="espacio" HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnAtras" text="‹  Atrás" styleClass="boton-limpiar" onAction="#atras"/>
+            <Button fx:id="btnPagar" styleClass="boton-pagar" onAction="#pagar"/>
+        </HBox>
+    </bottom>
+</BorderPane>

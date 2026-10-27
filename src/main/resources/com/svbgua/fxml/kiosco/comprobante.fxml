@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Paso 4: comprobante de la compra. -->
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.svbgua.kiosco.ComprobanteController">
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll-resumen">
+            <VBox spacing="14" alignment="TOP_CENTER">
+                <padding><Insets top="24" right="24" bottom="10" left="24"/></padding>
+                <Label text="✓" styleClass="exito-check"/>
+                <Label text="¡Gracias por tu compra!" styleClass="res-titulo"/>
+                <Label fx:id="lblVenta" styleClass="concierto-nombre"/>
+
+                <VBox styleClass="panel-seleccion" spacing="14" maxWidth="720">
+                    <VBox spacing="6" alignment="CENTER">
+                        <Label fx:id="lblCorreo" styleClass="res-conteo" wrapText="true" textAlignment="CENTER"/>
+                    </VBox>
+                    <VBox fx:id="lineas" spacing="10"/>
+                    <Label fx:id="lblDetalles" styleClass="res-conteo" wrapText="true"/>
+                    <VBox spacing="2">
+                        <Label text="TOTAL PAGADO" styleClass="barra-etiqueta"/>
+                        <Label fx:id="lblTotal" styleClass="total-valor"/>
+                    </VBox>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox styleClass="barra-inferior" spacing="24" alignment="CENTER">
+            <Label fx:id="lblCuenta" styleClass="res-conteo"/>
+            <Button text="Nueva compra" styleClass="boton-continuar" maxWidth="Infinity" HBox.hgrow="ALWAYS"
+                    onAction="#nuevaCompra"/>
+        </HBox>
+    </bottom>
+</BorderPane>

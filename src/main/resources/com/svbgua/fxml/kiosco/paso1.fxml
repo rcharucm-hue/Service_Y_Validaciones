@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Paso 1: mapa del recinto, panel de selección y barra inferior. -->
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:id="raiz" fx:controller="com.svbgua.kiosco.Paso1Controller">
+
+    <center>
+        <VBox fx:id="zonaMapa" styleClass="zona-mapa" spacing="8">
+            <padding><Insets top="8" right="10" bottom="8" left="20"/></padding>
+            <StackPane fx:id="contenedorMapa" VBox.vgrow="ALWAYS"/>
+            <FlowPane fx:id="leyenda" hgap="24" vgap="8" alignment="CENTER"/>
+        </VBox>
+    </center>
+
+    <right>
+        <StackPane fx:id="contenedorPanel" styleClass="contenedor-panel" prefWidth="420" minWidth="380">
+            <fx:include fx:id="panel" source="panel-seleccion.fxml"/>
+        </StackPane>
+    </right>
+
+    <bottom>
+        <VBox fx:id="zonaInferior">
+            <VBox styleClass="barra-inferior" spacing="12">
+                <HBox fx:id="filaDatos" spacing="30" alignment="CENTER_LEFT">
+                    <VBox spacing="2">
+                        <Label text="SELECCIÓN" styleClass="barra-etiqueta"/>
+                        <HBox spacing="16">
+                            <Label fx:id="lblBoletos" text="0 boletos" styleClass="barra-dato"/>
+                            <Label fx:id="lblMesas" text="0 asientos" styleClass="barra-dato"/>
+                        </HBox>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <VBox spacing="2" alignment="CENTER_RIGHT">
+                        <Label text="TOTAL" styleClass="barra-etiqueta"/>
+                        <Label fx:id="lblTotal" text="Q0.00" styleClass="total-valor"/>
+                    </VBox>
+                    <Button fx:id="btnLimpiar" text="Limpiar selección" styleClass="boton-limpiar" onAction="#limpiar"/>
+                    <Button fx:id="btnContinuar" text="Continuar  →" styleClass="boton-continuar" onAction="#continuar"/>
+                </HBox>
+                <!-- Solo se usa en pantalla vertical: aquí se pasan los dos botones. -->
+                <HBox fx:id="filaBotones" spacing="14" visible="false" managed="false"/>
+            </VBox>
+        </VBox>
+    </bottom>
+</BorderPane>

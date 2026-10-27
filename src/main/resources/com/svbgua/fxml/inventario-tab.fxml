@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.svbgua.ui.InventarioAdminController">
+    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <padding><Insets top="0" right="0" bottom="12" left="0"/></padding>
+            <Button text="Actualizar" onAction="#cargar"/>
+            <Label text="Filtrar por concierto:"/>
+            <ComboBox fx:id="cbFiltro" prefWidth="420"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox>
+            <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+                <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                <placeholder><Label text="No hay inventario registrado."/></placeholder>
+                <columns>
+                    <TableColumn fx:id="cId" text="ID" maxWidth="60"/>
+                    <TableColumn fx:id="cConcierto" text="Concierto"/>
+                    <TableColumn fx:id="cLocalidad" text="Sección"/>
+                    <TableColumn fx:id="cPrecio" text="Precio"/>
+                    <TableColumn fx:id="cTotal" text="Total"/>
+                    <TableColumn fx:id="cDisp" text="Disponible"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+    <right>
+        <VBox styleClass="tarjeta" spacing="14" prefWidth="420" minWidth="420">
+            <padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+            <BorderPane.margin><Insets left="16"/></BorderPane.margin>
+
+            <Label fx:id="lblModo" text="Nuevo registro" styleClass="seccion-titulo"/>
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+                <Label text="Concierto:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <ComboBox fx:id="cbConcierto" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                <Label text="Sección:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                <HBox spacing="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <ComboBox fx:id="cbLocalidad" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+                    <Button text="+ Localidad" onAction="#crearLocalidad"/>
+                </HBox>
+                <Label text="Precio (Q):" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                <TextField fx:id="tfPrecio" promptText="Ej. 250.00" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <Label text="Total:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                <TextField fx:id="tfTotal" promptText="Cantidad total" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <Label text="Disponible:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                <TextField fx:id="tfDisponible" promptText="Cantidad disponible" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+            </GridPane>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Button text="Nuevo" onAction="#limpiarFormulario"/>
+                <Button text="Guardar" styleClass="btn-primario" onAction="#guardar"/>
+                <Button text="Eliminar" styleClass="btn-peligro" onAction="#eliminar"/>
+            </HBox>
+        </VBox>
+    </right>
+</BorderPane>

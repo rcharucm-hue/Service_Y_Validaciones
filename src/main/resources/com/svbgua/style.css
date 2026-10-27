@@ -1,0 +1,120 @@
+/* SVB-GUA · Interfaz administrador / vendedor (paleta verde neón / turquesa)
+   Fondo #071416 · Paneles #102124 · Verde neón #00E5A0 · Turquesa #00D8C3
+   Naranja (mesas) #FF681C · Dorado (VIP) #F5A000 */
+
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 14px;
+    -fx-base: #102124;
+    -fx-background: #071416;
+    -fx-control-inner-background: #0B1B1D;
+    -fx-accent: #00E5A0;
+    -fx-focus-color: #00E5A0;
+    -fx-faint-focus-color: transparent;
+}
+
+/* ---------- login ---------- */
+.login-fondo { -fx-background-color: linear-gradient(to bottom right, #071416, #0D2A2D, #040C0D); }
+.login-titulo { -fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: #00E5A0; }
+.subtitulo { -fx-text-fill: #7FA7A1; -fx-padding: 0 0 8 0; }
+.etiqueta { -fx-text-fill: #A9C9C4; -fx-font-size: 12px; -fx-font-weight: bold; }
+.error { -fx-text-fill: #FF9A62; -fx-font-size: 13px; }
+
+/* ---------- tarjetas ---------- */
+.tarjeta {
+    -fx-background-color: #102124;
+    -fx-background-radius: 14;
+    -fx-border-color: rgba(0,229,160,0.18);
+    -fx-border-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.55), 14, 0.15, 0, 3);
+}
+
+/* ---------- header ---------- */
+.header {
+    -fx-background-color: #0B1B1D;
+    -fx-border-color: transparent transparent #00E5A0 transparent;
+    -fx-border-width: 0 0 2 0;
+}
+.header-titulo { -fx-text-fill: #00E5A0; -fx-font-size: 20px; -fx-font-weight: bold; }
+.header-usuario { -fx-text-fill: #A9C9C4; }
+
+/* ---------- botones ---------- */
+.button { -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 7 14 7 14; }
+.btn-primario { -fx-background-color: #00E5A0; -fx-text-fill: #071416; -fx-font-weight: bold; }
+.btn-primario:hover { -fx-background-color: #00C98E; }
+.btn-peligro { -fx-background-color: #FF681C; -fx-text-fill: #071416; -fx-font-weight: bold; }
+.btn-peligro:hover { -fx-background-color: #E65A12; }
+.btn-comprar {
+    -fx-background-color: #00D8C3; -fx-text-fill: #071416;
+    -fx-font-size: 17px; -fx-font-weight: bold; -fx-padding: 12 14 12 14;
+}
+.btn-comprar:hover { -fx-background-color: #00BFAE; }
+.btn-comprar:disabled { -fx-background-color: #2C4A4D; -fx-text-fill: #6F938E; -fx-opacity: 1; }
+
+/* ---------- mapa ---------- */
+.escenario {
+    -fx-background-color: linear-gradient(to bottom, #1B3C40, #071416);
+    -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 14;
+    -fx-background-radius: 8 8 60 60;
+}
+.zona {
+    -fx-text-fill: #071416; -fx-font-size: 15px; -fx-font-weight: bold;
+    -fx-text-alignment: center; -fx-alignment: center;
+    -fx-background-radius: 16; -fx-cursor: hand;
+    -fx-border-radius: 16; -fx-border-color: transparent; -fx-border-width: 4;
+}
+.zona-vip   { -fx-background-color: #F5A000; }
+.zona-pref  { -fx-background-color: #00D8C3; }
+.zona-mesa  { -fx-background-color: #FF681C; }
+.zona-otra  { -fx-background-color: #00E5A0; }
+.zona:hover { -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.55), 12, 0.2, 0, 2); }
+.zona:selected {
+    -fx-border-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,229,160,0.8), 16, 0.3, 0, 0);
+}
+.zona:disabled { -fx-opacity: 0.45; }
+
+/* ---------- textos ---------- */
+.seccion-titulo { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #00E5A0; }
+.dato { -fx-text-fill: #CFE6E2; -fx-font-size: 14px; }
+.total { -fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #00E5A0; }
+
+.scroll-limpio { -fx-background-color: transparent; -fx-padding: 0; }
+.scroll-limpio > .viewport { -fx-background-color: transparent; }
+
+/* ---------- tablas ---------- */
+.table-view { -fx-background-color: #0B1B1D; -fx-border-color: rgba(0,229,160,0.18); }
+.table-view .column-header-background { -fx-background-color: #102124; }
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: #102124;
+    -fx-border-color: rgba(0,229,160,0.18);
+}
+.table-view .column-header .label { -fx-text-fill: #00E5A0; -fx-font-weight: bold; }
+.table-row-cell { -fx-background-color: #0B1B1D; -fx-border-color: transparent; }
+.table-row-cell:odd { -fx-background-color: #0E2326; }
+.table-row-cell:selected { -fx-background-color: rgba(0,229,160,0.28); }
+.table-row-cell:selected .table-cell { -fx-text-fill: white; }
+.table-cell { -fx-text-fill: #E6F4F1; }
+
+/* Indicadores de progreso */
+.progress-indicator { -fx-progress-color: #00E5A0; }
+.btn-comprar .progress-indicator { -fx-progress-color: #071416; }
+/* Rueda de "Entrando..." (botón verde deshabilitado): oscura para que se vea bien */
+.btn-primario .progress-indicator { -fx-progress-color: #071416; }
+
+/* Botón en proceso ("Entrando...", "Procesando..."): mismo tono atenuado que deshabilitado, pero la rueda se ve completa */
+.button.trabajando { -fx-opacity: 1; }
+.btn-primario.trabajando { -fx-background-color: #5FBF9F; -fx-text-fill: #071416; }
+.btn-comprar.trabajando { -fx-background-color: #2C4A4D; }
+/* ---------- campos de texto ---------- */
+.text-input {
+    -fx-text-fill: #E6F4F1;
+    -fx-prompt-text-fill: #8FB5AF;
+    -fx-background-color: #0B1B1D;
+    -fx-border-color: rgba(0,229,160,0.35);
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+.text-input:focused {
+    -fx-border-color: #00E5A0;
+}

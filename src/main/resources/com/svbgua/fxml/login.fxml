@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane styleClass="login-fondo" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.svbgua.ui.LoginController">
+    <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="380" spacing="10" styleClass="tarjeta" StackPane.alignment="CENTER">
+        <padding><Insets bottom="32" left="32" right="32" top="32" /></padding>
+
+        <Label styleClass="login-titulo" text="TICKETS UMG" />
+        <Label styleClass="subtitulo" text="Sistema de venta de boletos" />
+
+        <Label styleClass="etiqueta" text="Usuario" />
+        <TextField fx:id="tfUsuario" promptText="Usuario" />
+        <Label styleClass="etiqueta" text="Contraseña" />
+        <PasswordField fx:id="pfContrasena" promptText="Contraseña" />
+
+        <Label fx:id="lblMensaje" styleClass="error" wrapText="true" />
+        <Button fx:id="btnEntrar" defaultButton="true" maxWidth="Infinity" onAction="#entrar" styleClass="btn-primario" text="Iniciar sesión" />
+        <Button fx:id="btnAutoservicio" maxWidth="Infinity" onAction="#autoservicio" text="Autoservicio" />
+    </VBox>
+</StackPane>

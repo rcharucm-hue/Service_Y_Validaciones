@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Encabezado del autoservicio. En pantalla horizontal todo va en una fila; en vertical el título baja a una segunda fila. -->
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+          fx:id="raiz" fx:controller="com.svbgua.kiosco.EncabezadoController"
+          styleClass="encabezado" hgap="26" visible="false">
+    <columnConstraints>
+        <ColumnConstraints minWidth="-Infinity"/>
+        <ColumnConstraints minWidth="-Infinity"/>
+        <ColumnConstraints hgrow="ALWAYS"/>
+        <ColumnConstraints/>
+        <ColumnConstraints hgrow="ALWAYS"/>
+        <ColumnConstraints minWidth="-Infinity"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints valignment="CENTER"/>
+        <RowConstraints valignment="CENTER"/>
+    </rowConstraints>
+
+    <Button fx:id="btnRegresar" text="‹  Regresar" styleClass="boton-regresar" minWidth="-Infinity" onAction="#regresar"
+            GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+
+    <VBox alignment="CENTER_LEFT" onMouseClicked="#logoTocado" GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <Label text="Venta De Tickets UMG" styleClass="logo"/>
+        <Label text="Sistema de Venta Local de Boletos" styleClass="logo-sub"/>
+    </VBox>
+
+    <VBox fx:id="titulos" spacing="2" alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="0">
+        <Label fx:id="lblTitulo" styleClass="titulo-pantalla"/>
+        <Label fx:id="lblConcierto" styleClass="concierto-nombre" wrapText="true" alignment="CENTER"/>
+        <Label fx:id="lblDetalle" styleClass="concierto-detalle" wrapText="true" alignment="CENTER"/>
+        <Button fx:id="btnCambiar" text="Cambiar concierto" styleClass="boton-enlace" onAction="#cambiarConcierto"/>
+    </VBox>
+
+    <HBox spacing="10" alignment="CENTER" minWidth="-Infinity" GridPane.columnIndex="5" GridPane.rowIndex="0">
+        <Label fx:id="lblPaso1" styleClass="paso-inactivo" minWidth="-Infinity"/>
+        <Label text="›" styleClass="paso-flecha"/>
+        <Label fx:id="lblPaso2" styleClass="paso-inactivo" minWidth="-Infinity"/>
+        <Label text="›" styleClass="paso-flecha"/>
+        <Label fx:id="lblPaso3" styleClass="paso-inactivo" minWidth="-Infinity"/>
+    </HBox>
+</GridPane>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plantilla generada para SVB-GUA (Popularidad de artistas). Se puede abrir y editar con Jaspersoft Studio. -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="artistas-popularidad" language="java" pageWidth="842" pageHeight="595" orientation="Landscape"
+              columnWidth="782" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30"
+              whenNoDataType="NoDataSection">
+
+    <style name="Base" isDefault="true" fontName="DejaVu Sans" fontSize="9"/>
+    <style name="Zebra" mode="Transparent">
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT} % 2 == 0]]></conditionExpression>
+            <style mode="Opaque" backcolor="#F5F3FF"/>
+        </conditionalStyle>
+    </style>
+
+    <subDataset name="DatosGrafica">
+        <field name="serie" class="java.lang.String"/>
+        <field name="categoria" class="java.lang.String"/>
+        <field name="valor" class="java.math.BigDecimal"/>
+    </subDataset>
+    <parameter name="GRAFICA" class="java.util.Collection"/>
+    <parameter name="GRAFICA_RECAUDACION" class="java.util.Collection"/>
+    <parameter name="TITULO_GRAFICA" class="java.lang.String"/>
+    <parameter name="TITULO" class="java.lang.String"/>
+    <parameter name="SUBTITULO" class="java.lang.String"/>
+    <parameter name="GENERADO" class="java.lang.String"/>
+    <parameter name="USUARIO" class="java.lang.String"/>
+
+    <field name="posicion" class="java.lang.Integer"/>
+    <field name="artista" class="java.lang.String"/>
+    <field name="genero" class="java.lang.String"/>
+    <field name="conciertos" class="java.lang.Integer"/>
+    <field name="boletos" class="java.lang.Integer"/>
+    <field name="recaudado" class="java.math.BigDecimal"/>
+
+    <variable name="TOTAL_BOLETOS" class="java.lang.Integer" calculation="Sum">
+        <variableExpression><![CDATA[$F{boletos}]]></variableExpression>
+    </variable>
+    <variable name="TOTAL_RECAUDADO" class="java.math.BigDecimal" calculation="Sum">
+        <variableExpression><![CDATA[$F{recaudado}]]></variableExpression>
+    </variable>
+
+    <title>
+        <band height="78">
+            <textField>
+                <reportElement mode="Opaque" x="0" y="0" width="782" height="34" forecolor="#FFFFFF" backcolor="#6D28D9"/>
+                <box leftPadding="10"/>
+                <textElement verticalAlignment="Middle"><font size="16" isBold="true"/></textElement>
+                <textFieldExpression><![CDATA[$P{TITULO}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="40" width="782" height="16"/>
+                <textElement verticalAlignment="Middle"><font size="10" isBold="true"/></textElement>
+                <textFieldExpression><![CDATA[$P{SUBTITULO}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="58" width="782" height="14" forecolor="#6B7280"/>
+                <textElement verticalAlignment="Middle"><font size="8"/></textElement>
+                <textFieldExpression><![CDATA["Tickets UMG · Generado: " + $P{GENERADO} + " · por " + $P{USUARIO}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height="24">
+            <staticText>
+                <reportElement mode="Opaque" x="0" y="0" width="50" height="24" forecolor="#FFFFFF" backcolor="#6D28D9"/>
+                <box leftPadding="4" rightPadding="4"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"><font isBold="true"/></textElement>
+                <text><![CDATA[#]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="50" y="0" width="250" height="24" forecolor="#FFFFFF" backcolor="#6D28D9"/>
+                <box leftPadding="4" rightPadding="4"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"><font isBold="true"/></textElement>
+                <text><![CDATA[Artista]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="300" y="0" width="160" height="24" forecolor="#FFFFFF" backcolor="#6D28D9"/>
+                <box leftPadding="4" rightPadding="4"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle"><font isBold="true"/></textElement>
+                <text><![CDATA[Género]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="460" y="0" width="90" height="24" forecolor="#FFFFFF" backcolor="#6D28D9"/>
+                <box leftPadding="4" rightPadding="4"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"><font isBold="true"/></textElement>
+                <text><![CDATA[Conciertos]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="550" y="0" width="112" height="24" forecolor="#FFFFFF" backcolor="#6D28D9"/>
+                <box leftPadding="4" rightPadding="4"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"><font isBold="true"/></textElement>
+                <text><![CDATA[Boletos vendidos]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="662" y="0" width="120" height="24" forecolor="#FFFFFF" backcolor="#6D28D9"/>
+                <box leftPadding="4" rightPadding="4"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"><font isBold="true"/></textElement>
+                <text><![CDATA[Recaudado]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="20">
+            <textField isBlankWhenNull="true">
+                <reportElement style="Zebra" x="0" y="0" width="50" height="20"/>
+                <box leftPadding="4" rightPadding="4"><bottomPen lineWidth="0.5" lineColor="#E5E7EB"/></box>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{posicion}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="Zebra" x="50" y="0" width="250" height="20"/>
+                <box leftPadding="4" rightPadding="4"><bottomPen lineWidth="0.5" lineColor="#E5E7EB"/></box>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{artista}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement style="Zebra" x="300" y="0" width="160" height="20"/>
+                <box leftPadding="4" rightPadding="4"><bottomPen lineWidth="0.5" lineColor="#E5E7EB"/></box>
+                <textElement textAlignment="Left" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{genero}]]></textFieldExpression>
+            </textField>
+            <textField pattern="#,##0" isBlankWhenNull="true">
+                <reportElement style="Zebra" x="460" y="0" width="90" height="20"/>
+                <box leftPadding="4" rightPadding="4"><bottomPen lineWidth="0.5" lineColor="#E5E7EB"/></box>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{conciertos}]]></textFieldExpression>
+            </textField>
+            <textField pattern="#,##0" isBlankWhenNull="true">
+                <reportElement style="Zebra" x="550" y="0" width="112" height="20"/>
+                <box leftPadding="4" rightPadding="4"><bottomPen lineWidth="0.5" lineColor="#E5E7EB"/></box>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{boletos}]]></textFieldExpression>
+            </textField>
+            <textField pattern="Q #,##0.00" isBlankWhenNull="true">
+                <reportElement style="Zebra" x="662" y="0" width="120" height="20"/>
+                <box leftPadding="4" rightPadding="4"><bottomPen lineWidth="0.5" lineColor="#E5E7EB"/></box>
+                <textElement textAlignment="Right" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{recaudado}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+    <pageFooter>
+        <band height="20">
+            <textField>
+                <reportElement x="582" y="2" width="200" height="16" forecolor="#6B7280"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"><font size="8"/></textElement>
+                <textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+
+    <summary>
+        <band height="390" splitType="Prevent">
+            <staticText>
+                <reportElement x="452" y="8" width="200" height="20"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"><font isBold="true" size="10"/></textElement>
+                <text><![CDATA[TOTAL BOLETOS:]]></text>
+            </staticText>
+            <textField pattern="#,##0" isBlankWhenNull="true">
+                <reportElement x="662" y="8" width="120" height="20"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"><font isBold="true" size="10"/></textElement>
+                <textFieldExpression><![CDATA[$V{TOTAL_BOLETOS}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="452" y="30" width="200" height="20"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"><font isBold="true" size="10"/></textElement>
+                <text><![CDATA[TOTAL RECAUDADO:]]></text>
+            </staticText>
+            <textField pattern="Q #,##0.00" isBlankWhenNull="true">
+                <reportElement x="662" y="30" width="120" height="20"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle"><font isBold="true" size="10"/></textElement>
+                <textFieldExpression><![CDATA[$V{TOTAL_RECAUDADO}]]></textFieldExpression>
+            </textField>
+        <barChart>
+    <chart evaluationTime="Report" isShowLegend="true" customizerClass="com.svbgua.reportes.GraficaCustomizer">
+        <reportElement x="0" y="65" width="782" height="310"/>
+        <chartTitle><font fontName="DejaVu Sans" size="11" isBold="true"/><titleExpression><![CDATA[$P{TITULO_GRAFICA}]]></titleExpression></chartTitle>
+        <chartSubtitle/>
+        <chartLegend position="Bottom"><font fontName="DejaVu Sans" size="9"/></chartLegend>
+    </chart>
+    <categoryDataset>
+        <dataset><datasetRun subDataset="DatosGrafica"><dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{GRAFICA})]]></dataSourceExpression></datasetRun></dataset>
+        <categorySeries>
+            <seriesExpression><![CDATA[$F{serie}]]></seriesExpression>
+            <categoryExpression><![CDATA[$F{categoria}]]></categoryExpression>
+            <valueExpression><![CDATA[$F{valor}]]></valueExpression>
+        </categorySeries>
+    </categoryDataset>
+    <barPlot isShowLabels="false" isShowTickLabels="true" isShowTickMarks="true">
+        <plot orientation="Horizontal" backcolor="#FFFFFF">
+            <seriesColor seriesOrder="0" color="#6D28D9"/>
+            <seriesColor seriesOrder="1" color="#10B981"/>
+        </plot>
+        <categoryAxisFormat><axisFormat><labelFont><font fontName="DejaVu Sans" size="9"/></labelFont><tickLabelFont><font fontName="DejaVu Sans" size="9"/></tickLabelFont></axisFormat></categoryAxisFormat>
+        <valueAxisFormat><axisFormat><labelFont><font fontName="DejaVu Sans" size="9"/></labelFont><tickLabelFont><font fontName="DejaVu Sans" size="9"/></tickLabelFont></axisFormat></valueAxisFormat>
+        <rangeAxisMinValueExpression><![CDATA[0]]></rangeAxisMinValueExpression>
+    </barPlot>
+</barChart>
+        </band>
+    </summary>
+
+    <noData>
+        <band height="60">
+            <textField>
+                <reportElement mode="Opaque" x="0" y="0" width="782" height="34" forecolor="#FFFFFF" backcolor="#6D28D9"/>
+                <box leftPadding="10"/>
+                <textElement verticalAlignment="Middle"><font size="16" isBold="true"/></textElement>
+                <textFieldExpression><![CDATA[$P{TITULO}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="40" width="782" height="18"/>
+                <textElement verticalAlignment="Middle"/>
+                <text><![CDATA[No hay datos para los filtros elegidos.]]></text>
+            </staticText>
+        </band>
+    </noData>
+</jasperReport>

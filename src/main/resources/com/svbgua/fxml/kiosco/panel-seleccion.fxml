@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Panel lateral: detalle de la localidad activa y resumen de la selección. -->
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:id="raiz" fx:controller="com.svbgua.kiosco.PanelSeleccionController"
+      styleClass="panel-seleccion" spacing="14">
+    <fx:define>
+        <!-- Se usan cuando el panel va en horizontal (pantalla vertical): tarjeta y resumen lado a lado. -->
+        <HBox fx:id="cuerpo" spacing="18" VBox.vgrow="ALWAYS"/>
+        <VBox fx:id="colIzq" spacing="10" prefWidth="0" HBox.hgrow="ALWAYS"/>
+        <VBox fx:id="colDer" spacing="10" prefWidth="0" HBox.hgrow="ALWAYS"/>
+    </fx:define>
+
+    <Label fx:id="titulo" text="TU SELECCIÓN" styleClass="panel-titulo"/>
+    <VBox fx:id="tarjetaActiva" styleClass="tarjeta-activa" spacing="10"/>
+    <Label fx:id="tituloResumen" text="RESUMEN" styleClass="panel-titulo"/>
+    <ScrollPane fx:id="scroll" fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll-resumen" VBox.vgrow="ALWAYS">
+        <VBox fx:id="listaResumen" spacing="10"/>
+    </ScrollPane>
+</VBox>

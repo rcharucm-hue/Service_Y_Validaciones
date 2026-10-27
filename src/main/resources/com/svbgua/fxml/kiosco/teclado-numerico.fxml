@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Teclado numérico en pantalla. La tecla K solo se muestra cuando se pide (NIT). -->
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.svbgua.kiosco.TecladoNumericoController" hgap="12" vgap="12">
+    <columnConstraints>
+        <ColumnConstraints percentWidth="33.3333" hgrow="ALWAYS"/>
+        <ColumnConstraints percentWidth="33.3333" hgrow="ALWAYS"/>
+        <ColumnConstraints percentWidth="33.3333" hgrow="ALWAYS"/>
+    </columnConstraints>
+    <Button text="1" styleClass="tecla" maxWidth="Infinity" focusTraversable="false" onAction="#teclaPulsada" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <Button text="2" styleClass="tecla" maxWidth="Infinity" focusTraversable="false" onAction="#teclaPulsada" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <Button text="3" styleClass="tecla" maxWidth="Infinity" focusTraversable="false" onAction="#teclaPulsada" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+    <Button text="4" styleClass="tecla" maxWidth="Infinity" focusTraversable="false" onAction="#teclaPulsada" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <Button text="5" styleClass="tecla" maxWidth="Infinity" focusTraversable="false" onAction="#teclaPulsada" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Button text="6" styleClass="tecla" maxWidth="Infinity" focusTraversable="false" onAction="#teclaPulsada" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+    <Button text="7" styleClass="tecla" maxWidth="Infinity" focusTraversable="false" onAction="#teclaPulsada" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <Button text="8" styleClass="tecla" maxWidth="Infinity" focusTraversable="false" onAction="#teclaPulsada" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Button text="9" styleClass="tecla" maxWidth="Infinity" focusTraversable="false" onAction="#teclaPulsada" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <Button fx:id="btnK" visible="false" text="K" styleClass="tecla" maxWidth="Infinity" focusTraversable="false" onAction="#teclaPulsada" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <Button text="0" styleClass="tecla" maxWidth="Infinity" focusTraversable="false" onAction="#teclaPulsada" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <Button text="⌫" styleClass="tecla, tecla-borrar" maxWidth="Infinity" focusTraversable="false" onAction="#teclaPulsada" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+</GridPane>
