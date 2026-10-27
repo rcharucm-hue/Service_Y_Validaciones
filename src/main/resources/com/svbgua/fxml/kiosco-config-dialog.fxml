@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.svbgua.ui.KioscoConfigDialogController" hgap="10" vgap="9" prefWidth="470">
+    <padding><Insets top="10" right="6" bottom="0" left="6"/></padding>
+    <columnConstraints>
+        <ColumnConstraints/>
+        <ColumnConstraints hgrow="ALWAYS"/>
+    </columnConstraints>
+
+    <Label wrapText="true" styleClass="subtitulo" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"
+           text="Esto se hace una sola vez. Los clientes no inician sesión: la terminal se conecta sola con esta cuenta. Se recomienda un usuario de rol vendedor."/>
+
+    <Label text="Usuario:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="tfUsuario" promptText="Cuenta de la terminal" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label text="Contraseña:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <PasswordField fx:id="pfClave" promptText="Contraseña de esa cuenta" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <Separator GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2"/>
+
+    <Label text="PIN del personal:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <PasswordField fx:id="pfPin" promptText="4 a 8 números" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <Label text="Repetir PIN:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+    <PasswordField fx:id="pfPin2" promptText="Repite el PIN" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    <Label wrapText="true" styleClass="subtitulo" GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2"
+           text="Para salir del autoservicio: tocar 5 veces seguidas el logo del Sistema e ingresar este PIN."/>
+
+    <Label fx:id="lblError" styleClass="error" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="7" GridPane.columnSpan="2"/>
+</GridPane>

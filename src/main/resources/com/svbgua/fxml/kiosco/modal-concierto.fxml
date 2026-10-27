@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:id="raiz" fx:controller="com.svbgua.kiosco.ModalConciertoController" spacing="14">
+    <Label text="Elige tu concierto" styleClass="res-titulo"/>
+    <ScrollPane fx:id="scroll" fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll-resumen">
+        <TilePane fx:id="lista" hgap="10" vgap="10" tileAlignment="TOP_LEFT"/>
+    </ScrollPane>
+</VBox>

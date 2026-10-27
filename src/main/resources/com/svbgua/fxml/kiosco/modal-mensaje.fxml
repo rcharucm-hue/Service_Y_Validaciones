@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Mensaje con un botón principal y, opcionalmente, "Salir". -->
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:id="raiz" fx:controller="com.svbgua.kiosco.ModalController" spacing="18">
+    <Label fx:id="lblTitulo" styleClass="res-titulo" wrapText="true"/>
+    <Label fx:id="lblTexto" styleClass="panel-vacio" wrapText="true"/>
+    <Button fx:id="btnOk" styleClass="boton-continuar" maxWidth="Infinity" onAction="#aceptar"/>
+    <Button fx:id="btnSecundario" text="Salir" styleClass="boton-limpiar" maxWidth="Infinity" onAction="#secundario"/>
+</VBox>

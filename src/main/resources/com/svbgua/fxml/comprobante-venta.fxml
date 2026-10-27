@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<!-- Comprobante de la compra con su código QR y el estado del envío por correo. -->
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.svbgua.ui.ComprobanteVentaController" spacing="10" alignment="TOP_CENTER">
+    <ImageView fx:id="imgQr" fitWidth="200" fitHeight="200" preserveRatio="true"/>
+    <Label fx:id="lblCorreo" wrapText="true" maxWidth="520"/>
+    <TextArea fx:id="area" editable="false" prefWidth="520" prefHeight="300"
+              style="-fx-font-family: 'Consolas', 'Monospaced'; -fx-font-size: 13px;"/>
+</VBox>

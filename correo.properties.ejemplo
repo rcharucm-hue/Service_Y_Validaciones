@@ -1,0 +1,13 @@
+# Copia este archivo a:  <carpeta de usuario>/.svbgua/correo.properties
+#   Windows: C:\Users\TU_USUARIO\.svbgua\correo.properties
+#
+# Cuenta que ENVÍA los comprobantes con el QR (por ejemplo la Gmail del negocio).
+usuario=tu.cuenta@gmail.com
+
+# En Gmail NO uses tu contraseña normal: activa la verificación en 2 pasos y crea una
+# "Contraseña de aplicación" en  Cuenta de Google > Seguridad > Contraseñas de aplicaciones.
+clave=abcd efgh ijkl mnop
+
+# Opcionales (estos son los valores por defecto para Gmail)
+host=smtp.gmail.com
+puerto=587

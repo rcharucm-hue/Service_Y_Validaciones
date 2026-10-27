@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.svbgua.ui.PagoDialogController" hgap="10" vgap="10" prefWidth="430">
+    <padding><Insets top="10" right="6" bottom="0" left="6"/></padding>
+    <columnConstraints>
+        <ColumnConstraints/>
+        <ColumnConstraints hgrow="ALWAYS"/>
+    </columnConstraints>
+    <fx:define>
+        <ToggleGroup fx:id="grupoFactura"/>
+    </fx:define>
+
+    <Label text="Facturar como:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <VBox spacing="6" GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <RadioButton fx:id="rbCf" text="CF (Consumidor Final)" toggleGroup="$grupoFactura" selected="true"/>
+        <RadioButton fx:id="rbNit" text="NIT" toggleGroup="$grupoFactura"/>
+    </VBox>
+
+    <Label text="NIT:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <TextField fx:id="tfNit" promptText="Ej. 1234567-8" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <Label text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <TextField fx:id="tfNombre" promptText="Nombre para la factura" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <Label text="No. de tarjeta:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <TextField fx:id="tfTarjeta" promptText="0000 0000 0000 0000" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+    <Label text="Correo:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <TextField fx:id="tfCorreo" promptText="tucorreo@gmail.com (para enviarte el QR)" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+    <Label fx:id="lblError" styleClass="error" wrapText="true"
+           GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.columnSpan="2"/>
+</GridPane>

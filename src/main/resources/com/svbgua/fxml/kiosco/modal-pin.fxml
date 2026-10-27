@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- PIN del personal para salir del autoservicio. -->
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:id="raiz" fx:controller="com.svbgua.kiosco.ModalPinController" spacing="14" prefWidth="460">
+    <Label text="Acceso del personal" styleClass="res-titulo"/>
+    <Label text="Escribe el PIN para salir del autoservicio." styleClass="panel-vacio" wrapText="true"/>
+    <Label fx:id="campoPin" styleClass="campo-display" maxWidth="Infinity"/>
+    <Label fx:id="lblError" styleClass="campo-error"/>
+    <fx:include fx:id="teclado" source="teclado-numerico.fxml"/>
+    <HBox spacing="16" alignment="CENTER_RIGHT">
+        <Button text="Cancelar" styleClass="boton-limpiar" onAction="#cancelar"/>
+        <Button text="Entrar" styleClass="boton-continuar" onAction="#aceptar"/>
+    </HBox>
+</VBox>

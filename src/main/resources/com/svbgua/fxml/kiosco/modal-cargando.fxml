@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:id="raiz" fx:controller="com.svbgua.kiosco.ModalController" alignment="CENTER" spacing="16">
+    <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+    <ProgressIndicator prefWidth="72" prefHeight="72" minWidth="72" minHeight="72" maxWidth="72" maxHeight="72"/>
+    <Label fx:id="lblTitulo" styleClass="res-titulo" wrapText="true" textAlignment="CENTER"/>
+    <ProgressBar fx:id="barra" prefWidth="380" progress="0"/>
+</VBox>

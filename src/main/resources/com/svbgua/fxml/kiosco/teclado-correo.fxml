@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Teclado para escribir un correo: dígitos, letras en minúscula y atajos @gmail.com / .com -->
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.svbgua.kiosco.TecladoTextoController" styleClass="teclado-compacto" spacing="8">
+    <HBox spacing="8" alignment="CENTER">
+        <Button text="1" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="2" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="3" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="4" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="5" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="6" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="7" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="8" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="9" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="0" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+    </HBox>
+    <HBox spacing="8" alignment="CENTER">
+        <Button text="q" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="w" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="e" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="r" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="t" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="y" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="u" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="i" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="o" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="p" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+    </HBox>
+    <HBox spacing="8" alignment="CENTER">
+        <Button text="a" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="s" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="d" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="f" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="g" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="h" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="j" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="k" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="l" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+    </HBox>
+    <HBox spacing="8" alignment="CENTER">
+        <Button text="z" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="x" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="c" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="v" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="b" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="n" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="m" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="⌫" styleClass="tecla, tecla-letra, tecla-borrar" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+    </HBox>
+    <HBox spacing="8" alignment="CENTER">
+        <Button text="\@" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="_" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="-" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="." styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text="\@gmail.com" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+        <Button text=".com" styleClass="tecla, tecla-letra" maxWidth="Infinity" HBox.hgrow="ALWAYS" focusTraversable="false" onAction="#teclaPulsada"/>
+    </HBox>
+</VBox>

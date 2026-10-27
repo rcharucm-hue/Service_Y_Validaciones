@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.svbgua.ui.CatalogoAdminController">
+    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+    <top>
+        <HBox spacing="10">
+            <padding><Insets top="0" right="0" bottom="12" left="0"/></padding>
+            <Button text="Actualizar" onAction="#actualizar"/>
+        </HBox>
+    </top>
+
+    <center>
+        <HBox spacing="16">
+            <!-- ARTISTAS -->
+            <VBox spacing="10" HBox.hgrow="ALWAYS">
+                <Label text="Artistas" styleClass="seccion-titulo"/>
+                <TableView fx:id="tablaArtistas" VBox.vgrow="ALWAYS">
+                    <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                    <placeholder><Label text="No hay artistas registrados."/></placeholder>
+                    <columns>
+                        <TableColumn fx:id="cAId" text="ID" maxWidth="60"/>
+                        <TableColumn fx:id="cANombre" text="Nombre artístico"/>
+                        <TableColumn fx:id="cAGenero" text="Género"/>
+                        <TableColumn fx:id="cAPais" text="País"/>
+                    </columns>
+                </TableView>
+                <VBox styleClass="tarjeta" spacing="10">
+                    <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                    <Label fx:id="lblModoArtista" text="Nuevo artista" styleClass="seccion-titulo"/>
+                    <TextField fx:id="tfANombre" promptText="Nombre artístico (máx. 120)"/>
+                    <TextField fx:id="tfAGenero" promptText="Género musical (máx. 50)"/>
+                    <TextField fx:id="tfAPais" promptText="País (opcional)"/>
+                    <HBox spacing="8" alignment="CENTER_LEFT">
+                        <Button text="Nuevo" onAction="#nuevoArtista"/>
+                        <Button text="Guardar" styleClass="btn-primario" onAction="#guardarArtista"/>
+                        <Button text="Eliminar" styleClass="btn-peligro" onAction="#eliminarArtista"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <!-- LOCALIDADES -->
+            <VBox spacing="10" prefWidth="380" minWidth="380">
+                <Label text="Localidades (secciones del recinto)" styleClass="seccion-titulo"/>
+                <TableView fx:id="tablaLocalidades" VBox.vgrow="ALWAYS">
+                    <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                    <placeholder><Label text="No hay localidades registradas."/></placeholder>
+                    <columns>
+                        <TableColumn fx:id="cLId" text="ID" maxWidth="60"/>
+                        <TableColumn fx:id="cLNombre" text="Nombre"/>
+                    </columns>
+                </TableView>
+                <VBox styleClass="tarjeta" spacing="10">
+                    <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                    <Label fx:id="lblModoLocalidad" text="Nueva localidad" styleClass="seccion-titulo"/>
+                    <TextField fx:id="tfLNombre" promptText="Ej.: Preferencial, VIP de pie, Mesa"/>
+                    <HBox spacing="8" alignment="CENTER_LEFT">
+                        <Button text="Nueva" onAction="#nuevaLocalidad"/>
+                        <Button text="Guardar" styleClass="btn-primario" onAction="#guardarLocalidad"/>
+                        <Button text="Eliminar" styleClass="btn-peligro" onAction="#eliminarLocalidad"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>

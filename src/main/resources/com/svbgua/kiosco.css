@@ -1,0 +1,320 @@
+/* SVB-GUA · Tema oscuro de terminal táctil (paleta verde neón / turquesa).
+   Nota: los textos del mapa (zona-*) NO fijan -fx-text-fill aquí; el color
+   lo asigna el código según el estado (disponible / seleccionado / agotado). */
+
+.root {
+    -fx-base: #102124;
+    -fx-accent: #00E5A0;
+    -fx-focus-color: #00E5A0;
+    -fx-faint-focus-color: transparent;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", "Noto Sans", Arial, sans-serif;
+    -fx-font-size: 16px;
+}
+
+.raiz {
+    -fx-background-color: linear-gradient(to bottom, #0D2A2D 0%, #071416 55%, #040C0D 100%);
+}
+
+.button { -fx-focus-traversable: false; -fx-cursor: hand; }
+
+/* ---------- Encabezado ---------- */
+.encabezado {
+    -fx-padding: 14 28 14 22;
+    -fx-background-color: linear-gradient(to bottom, rgba(255,255,255,0.07), rgba(255,255,255,0.0));
+    -fx-border-color: transparent transparent rgba(255,255,255,0.10) transparent;
+    -fx-border-width: 0 0 1 0;
+}
+.logo {
+    -fx-font-size: 34px;
+    -fx-font-weight: 900;
+    -fx-text-fill: linear-gradient(to right, #00E5A0, #00D8C3);
+    -fx-effect: dropshadow(gaussian, rgba(0,229,160,0.55), 18, 0.2, 0, 0);
+}
+.logo-sub { -fx-font-size: 11px; -fx-text-fill: #7FA7A1; }
+.titulo-pantalla { -fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: white; }
+.concierto-nombre { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #F5A000; }
+.concierto-detalle { -fx-font-size: 14px; -fx-text-fill: #A9C9C4; }
+
+.paso-activo {
+    -fx-background-color: linear-gradient(to right, #00E5A0, #00D8C3);
+    -fx-background-radius: 22;
+    -fx-text-fill: #071416;
+    -fx-font-weight: bold;
+    -fx-padding: 9 18 9 18;
+}
+.paso-inactivo {
+    -fx-background-color: rgba(255,255,255,0.07);
+    -fx-background-radius: 22;
+    -fx-text-fill: #6F938E;
+    -fx-padding: 9 18 9 18;
+}
+.paso-flecha { -fx-text-fill: #4F7772; -fx-font-size: 20px; }
+
+.boton-regresar {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(255,255,255,0.20);
+    -fx-border-radius: 16;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-padding: 16 26 16 26;
+    -fx-min-height: 64px;
+}
+.boton-regresar:pressed { -fx-background-color: rgba(255,255,255,0.20); }
+
+/* ---------- Mapa ---------- */
+.leyenda-texto { -fx-text-fill: #CFE6E2; -fx-font-size: 14px; }
+.zona-nombre { -fx-font-size: 19px; -fx-font-weight: bold; }
+.zona-precio { -fx-font-size: 16px; -fx-font-weight: bold; }
+.zona-info { -fx-font-size: 12px; }
+
+/* ---------- Panel lateral ---------- */
+.contenedor-panel { -fx-padding: 8 20 8 6; }
+.panel-seleccion {
+    -fx-background-color: linear-gradient(to bottom, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+    -fx-background-radius: 22;
+    -fx-border-color: rgba(255,255,255,0.12);
+    -fx-border-radius: 22;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 24, 0.1, 0, 8);
+}
+.panel-titulo { -fx-text-fill: #7FA7A1; -fx-font-size: 14px; -fx-font-weight: bold; }
+.tarjeta-activa {
+    -fx-background-color: rgba(7,20,22,0.60);
+    -fx-background-radius: 18;
+    -fx-border-color: rgba(255,255,255,0.10);
+    -fx-border-radius: 18;
+    -fx-padding: 14 16 14 16;
+}
+.panel-vacio { -fx-text-fill: #A9C9C4; -fx-font-size: 18px; -fx-wrap-text: true; }
+.panel-vacio-resumen { -fx-text-fill: #6F938E; -fx-font-size: 15px; }
+.activa-nombre { -fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold; }
+.activa-tipo { -fx-text-fill: #A9C9C4; -fx-font-size: 14px; -fx-wrap-text: true; }
+.dato-etiqueta { -fx-text-fill: #7FA7A1; -fx-font-size: 15px; }
+.dato-valor { -fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold; }
+
+.boton-cantidad {
+    -fx-background-color: linear-gradient(to bottom, #1B3C40, #102124);
+    -fx-background-radius: 40;
+    -fx-border-color: rgba(255,255,255,0.18);
+    -fx-border-radius: 40;
+    -fx-text-fill: white;
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-min-width: 76px;
+    -fx-min-height: 76px;
+    -fx-pref-width: 76px;
+    -fx-pref-height: 76px;
+}
+.boton-cantidad:pressed { -fx-background-color: linear-gradient(to bottom, #26565B, #1B3C40); }
+.boton-cantidad:disabled { -fx-opacity: 0.35; }
+.cantidad-valor { -fx-text-fill: white; -fx-font-size: 46px; -fx-font-weight: bold; -fx-min-width: 90px; -fx-alignment: center; }
+
+.subtotal-etiqueta { -fx-text-fill: #7FA7A1; -fx-font-size: 14px; -fx-font-weight: bold; }
+.subtotal-valor { -fx-text-fill: #00E5A0; -fx-font-size: 30px; -fx-font-weight: bold; }
+
+.boton-secundario {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(255,255,255,0.16);
+    -fx-border-radius: 16;
+    -fx-text-fill: #E6F4F1;
+    -fx-font-size: 16px;
+    -fx-padding: 14 20 14 20;
+    -fx-min-height: 58px;
+}
+.boton-secundario:pressed { -fx-background-color: rgba(255,255,255,0.20); }
+
+.scroll-resumen { -fx-background-color: transparent; -fx-background: transparent; }
+.scroll-resumen > .viewport { -fx-background-color: transparent; }
+
+.linea-resumen {
+    -fx-background-color: rgba(255,255,255,0.05);
+    -fx-background-radius: 14;
+    -fx-padding: 10 12 10 14;
+}
+.linea-resumen-activa {
+    -fx-border-color: rgba(255,255,255,0.45);
+    -fx-border-radius: 14;
+    -fx-border-width: 1.5;
+}
+.linea-nombre { -fx-text-fill: white; -fx-font-size: 17px; -fx-font-weight: bold; }
+.linea-detalle { -fx-text-fill: #7FA7A1; -fx-font-size: 14px; }
+.linea-subtotal { -fx-text-fill: #00E5A0; -fx-font-size: 17px; -fx-font-weight: bold; }
+.boton-quitar-linea {
+    -fx-background-color: rgba(255,104,28,0.18);
+    -fx-background-radius: 26;
+    -fx-text-fill: #FF9A62;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-min-width: 52px;
+    -fx-min-height: 52px;
+    -fx-pref-width: 52px;
+    -fx-pref-height: 52px;
+}
+.boton-quitar-linea:pressed { -fx-background-color: rgba(255,104,28,0.40); }
+
+/* ---------- Barra inferior ---------- */
+.barra-inferior {
+    -fx-padding: 14 28 14 28;
+    -fx-background-color: linear-gradient(to top, rgba(4,12,13,0.97), rgba(16,33,36,0.94));
+    -fx-border-color: rgba(255,255,255,0.12) transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+.barra-etiqueta { -fx-text-fill: #7FA7A1; -fx-font-size: 12px; -fx-font-weight: bold; }
+.barra-dato { -fx-text-fill: white; -fx-font-size: 22px; -fx-font-weight: bold; }
+.total-valor { -fx-text-fill: #00E5A0; -fx-font-size: 38px; -fx-font-weight: bold; }
+
+.boton-limpiar {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-background-radius: 18;
+    -fx-border-color: rgba(255,255,255,0.20);
+    -fx-border-radius: 18;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-padding: 18 32 18 32;
+    -fx-min-height: 68px;
+}
+.boton-limpiar:pressed { -fx-background-color: rgba(255,255,255,0.22); }
+.boton-limpiar:disabled { -fx-opacity: 0.4; }
+
+.boton-continuar {
+    -fx-background-color: linear-gradient(to right, #00E5A0, #00D8C3);
+    -fx-background-radius: 18;
+    -fx-text-fill: #071416;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 18 46 18 46;
+    -fx-min-height: 68px;
+    -fx-effect: dropshadow(gaussian, rgba(0,229,160,0.55), 22, 0.15, 0, 6);
+}
+.boton-continuar:pressed { -fx-background-color: linear-gradient(to right, #00C98E, #00BFAE); }
+
+/* ---------- Aviso y resumen provisional ---------- */
+.aviso {
+    -fx-background-color: rgba(16,33,36,0.97);
+    -fx-background-radius: 30;
+    -fx-border-color: #F5A000;
+    -fx-border-radius: 30;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-padding: 14 28 14 28;
+}
+.capa-resumen { -fx-background-color: rgba(3,10,11,0.85); }
+.tarjeta-resumen {
+    -fx-background-color: linear-gradient(to bottom, #153033, #0B1B1D);
+    -fx-background-radius: 26;
+    -fx-border-color: rgba(255,255,255,0.18);
+    -fx-border-radius: 26;
+    -fx-padding: 28;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 40, 0.15, 0, 14);
+}
+.res-titulo { -fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold; }
+.res-subtitulo { -fx-text-fill: #F5A000; -fx-font-size: 15px; }
+.res-cabecera { -fx-text-fill: #7FA7A1; -fx-font-size: 13px; -fx-font-weight: bold; }
+.res-celda { -fx-text-fill: white; -fx-font-size: 18px; }
+.res-conteo { -fx-text-fill: #CFE6E2; -fx-font-size: 15px; }
+.res-pie {
+    -fx-padding: 14 0 0 0;
+    -fx-border-color: rgba(255,255,255,0.15) transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+.res-nota { -fx-text-fill: #7FA7A1; -fx-font-size: 13px; -fx-wrap-text: true; }
+
+.zona-mapa { -fx-background-color: transparent; }
+
+/* ---------- Autoservicio: pasos de datos y pago ---------- */
+.boton-enlace {
+    -fx-background-color: transparent;
+    -fx-text-fill: #A9C9C4;
+    -fx-underline: true;
+    -fx-font-size: 14px;
+}
+
+.tecla {
+    -fx-background-color: linear-gradient(to bottom, #1B3C40, #102124);
+    -fx-background-radius: 18;
+    -fx-border-color: rgba(255,255,255,0.18);
+    -fx-border-radius: 18;
+    -fx-text-fill: white;
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-min-height: 84px;
+}
+.tecla:pressed { -fx-background-color: linear-gradient(to bottom, #26565B, #1B3C40); }
+.tecla-borrar { -fx-text-fill: #FF9A62; }
+
+.campo-display {
+    -fx-background-color: rgba(7,20,22,0.75);
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(255,255,255,0.20);
+    -fx-border-radius: 16;
+    -fx-text-fill: white;
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-padding: 18 22 18 22;
+    -fx-alignment: center;
+}
+.campo-error { -fx-text-fill: #FF9A62; -fx-font-size: 15px; }
+
+.opcion-factura {
+    -fx-background-color: rgba(255,255,255,0.07);
+    -fx-background-radius: 20;
+    -fx-border-color: rgba(255,255,255,0.18);
+    -fx-border-radius: 20;
+    -fx-text-fill: #CFE6E2;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-padding: 24 20 24 20;
+    -fx-min-height: 120px;
+}
+.opcion-factura-activa {
+    -fx-background-color: linear-gradient(to right, #00E5A0, #00D8C3);
+    -fx-border-color: white;
+    -fx-text-fill: #071416;
+}
+
+.boton-pagar {
+    -fx-background-color: linear-gradient(to right, #00E5A0, #00B67F);
+    -fx-background-radius: 18;
+    -fx-text-fill: #071416;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-padding: 18 40 18 40;
+    -fx-min-height: 68px;
+    -fx-effect: dropshadow(gaussian, rgba(0,229,160,0.5), 22, 0.15, 0, 6);
+}
+.boton-pagar:pressed { -fx-background-color: linear-gradient(to right, #00C98E, #009C6C); }
+.boton-pagar:disabled { -fx-opacity: 0.4; }
+
+.exito-check {
+    -fx-font-size: 96px;
+    -fx-text-fill: #00E5A0;
+    -fx-effect: dropshadow(gaussian, rgba(0,229,160,0.6), 24, 0.2, 0, 0);
+}
+
+.opcion-concierto {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-background-radius: 14;
+    -fx-border-color: rgba(255,255,255,0.18);
+    -fx-border-radius: 14;
+    -fx-padding: 10 16 10 16;
+    -fx-alignment: center-left;
+}
+.opcion-concierto:pressed { -fx-background-color: rgba(255,255,255,0.22); }
+.opcion-titulo { -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; }
+.opcion-detalle { -fx-text-fill: #A9C9C4; -fx-font-size: 12px; }
+
+.campo-chico { -fx-font-size: 24px; -fx-padding: 10 16 10 16; }
+.campo-vacio { -fx-text-fill: rgba(255,255,255,0.30); }
+.campo-activo { -fx-border-color: #00E5A0; -fx-border-width: 2; }
+.teclado-compacto .tecla { -fx-min-height: 62px; -fx-font-size: 26px; -fx-background-radius: 14; -fx-border-radius: 14; }
+.teclado-compacto .tecla-letra { -fx-min-height: 56px; -fx-font-size: 22px; -fx-padding: 0; }
+
+/* Indicadores de progreso */
+.progress-indicator { -fx-progress-color: #00E5A0; }
+.progress-bar > .track { -fx-background-color: rgba(255,255,255,0.12); -fx-background-radius: 6; -fx-background-insets: 0; }
+.progress-bar > .bar { -fx-background-color: linear-gradient(to right, #00E5A0, #00D8C3); -fx-background-radius: 6; -fx-background-insets: 0; -fx-padding: 0.4em; }

@@ -1,0 +1,11 @@
+# Copia este archivo a:  <carpeta de usuario>/.svbgua/kiosco.properties
+#   Windows: C:\Users\TU_USUARIO\.svbgua\kiosco.properties
+#
+# Cuenta de servicio con la que la terminal de autoservicio se conecta sola (los clientes no inician sesión).
+# IMPORTANTE: crea para esto un usuario con rol "vendedor". No uses un administrador.
+usuario=kiosco1
+clave=cambia-esta-clave
+
+# PIN (4 a 8 números) del personal. Para salir del autoservicio: tocar 5 veces seguidas el logo SVB-GUA e
+# ingresar este PIN. Al salir se cierra la sesión y se vuelve al login.
+pin=4321

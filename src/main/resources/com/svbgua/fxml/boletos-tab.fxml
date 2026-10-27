@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:id="raiz" fx:controller="com.svbgua.ui.BoletosController">
+    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+    <fx:define>
+        <!-- Contenedor que se usa cuando la pantalla es vertical (mapa arriba, carrito debajo). -->
+        <VBox fx:id="columna" spacing="14"/>
+    </fx:define>
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <padding><Insets top="0" right="0" bottom="14" left="0"/></padding>
+            <Label text="Concierto:"/>
+            <ComboBox fx:id="cbConcierto" promptText="Selecciona un concierto" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+            <Label fx:id="lblActualizado" styleClass="subtitulo"/>
+            <Button text="Actualizar" onAction="#cargarInventario"/>
+            <ToggleButton fx:id="btnAcomodar" text="Acomodar secciones" onAction="#alternarAcomodo"/>
+            <Button fx:id="btnRestablecer" text="Restablecer orden" onAction="#restablecerOrden"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fx:id="scrollMapa" fitToWidth="true" styleClass="scroll-limpio">
+            <VBox styleClass="tarjeta" spacing="18" alignment="TOP_CENTER">
+                <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+                <Label text="ESCENARIO" styleClass="escenario" prefWidth="380" alignment="CENTER"/>
+                <VBox fx:id="zonas" spacing="14" alignment="TOP_CENTER"/>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <right>
+        <VBox fx:id="derecha" spacing="14" prefWidth="420" minWidth="420">
+            <padding><Insets top="0" right="0" bottom="0" left="16"/></padding>
+
+            <VBox styleClass="tarjeta" spacing="6">
+                <padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+                <Label text="Sección seleccionada"/>
+                <Label fx:id="lblSeccion" styleClass="seccion-titulo"/>
+                <Label fx:id="lblPrecio" styleClass="dato"/>
+                <Label fx:id="lblDisp" styleClass="dato"/>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Cantidad:"/>
+                    <Spinner fx:id="spCantidad" editable="false" prefWidth="90"/>
+                    <Button fx:id="btnAgregar" text="Agregar al carrito" styleClass="btn-primario"
+                            onAction="#agregarAlCarrito"/>
+                </HBox>
+            </VBox>
+
+            <VBox fx:id="panelCarrito" styleClass="tarjeta" spacing="10" VBox.vgrow="ALWAYS">
+                <padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+                <Label text="Carrito" styleClass="seccion-titulo"/>
+                <TableView fx:id="tabla" minHeight="160" VBox.vgrow="ALWAYS">
+                    <columnResizePolicy><TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/></columnResizePolicy>
+                    <placeholder><Label text="El carrito está vacío"/></placeholder>
+                    <columns>
+                        <TableColumn fx:id="cSeccion" text="Sección"/>
+                        <TableColumn fx:id="cCant" text="Cant." maxWidth="60"/>
+                        <TableColumn fx:id="cPrecio" text="Precio"/>
+                        <TableColumn fx:id="cSub" text="Subtotal"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="8">
+                    <Button text="Cambiar cantidad" onAction="#cambiarCantidad"/>
+                    <Button text="Quitar" onAction="#quitarSeleccion"/>
+                    <Button text="Vaciar" onAction="#vaciarCarrito"/>
+                </HBox>
+                <Label fx:id="lblTotal" styleClass="total"/>
+                <Button fx:id="btnComprar" text="Comprar" styleClass="btn-comprar" maxWidth="Infinity"
+                        onAction="#comprar"/>
+            </VBox>
+        </VBox>
+    </right>
+</BorderPane>

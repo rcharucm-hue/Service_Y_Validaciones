@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Paso 2: datos de factura (CF o NIT). -->
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.svbgua.kiosco.Paso2Controller">
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="scroll-resumen">
+            <VBox spacing="26" alignment="TOP_CENTER">
+                <padding><Insets top="26" right="26" bottom="10" left="26"/></padding>
+
+                <HBox spacing="20" maxWidth="760">
+                    <Button fx:id="btnCf" text="CF&#10;Consumidor Final" styleClass="opcion-factura"
+                            maxWidth="Infinity" HBox.hgrow="ALWAYS" onAction="#elegirCf"/>
+                    <Button fx:id="btnNit" text="Con NIT&#10;Factura a tu nombre" styleClass="opcion-factura"
+                            maxWidth="Infinity" HBox.hgrow="ALWAYS" onAction="#elegirNit"/>
+                </HBox>
+
+                <VBox fx:id="bloqueNit" spacing="12" maxWidth="640">
+                    <Label text="NIT" styleClass="barra-etiqueta"/>
+                    <Label fx:id="campoNit" styleClass="campo-display" maxWidth="Infinity"/>
+                    <Label fx:id="errorNit" styleClass="campo-error"/>
+                    <fx:include fx:id="teclado" source="teclado-numerico.fxml"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox fx:id="barra" styleClass="barra-inferior" spacing="18" alignment="CENTER_LEFT">
+            <Region fx:id="espacio" HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnAtras" text="‹  Atrás" styleClass="boton-limpiar" onAction="#atras"/>
+            <Button fx:id="btnContinuar" text="Continuar  →" styleClass="boton-continuar" onAction="#continuar"/>
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:id="raiz" fx:controller="com.svbgua.ui.ReportesController">
+ <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+ <top><VBox spacing="10">
+  <Label text="Reportes y gráficas" styleClass="seccion-titulo"/>
+  <Label text="Gráficas generadas por JasperReports. Exporta cada reporte con su tabla, totales y gráfica." styleClass="subtitulo" wrapText="true"/>
+  <FlowPane hgap="10" vgap="8">
+   <ComboBox fx:id="cbConcierto" prefWidth="220"/><ComboBox fx:id="cbArtista" prefWidth="190"/>
+   <ComboBox fx:id="cbVendedor" prefWidth="190"/><DatePicker fx:id="dpDesde" promptText="Desde" prefWidth="145"/><DatePicker fx:id="dpHasta" promptText="Hasta" prefWidth="145"/>
+   <Button fx:id="btnAplicar" text="Aplicar filtros" onAction="#aplicarFiltros"/>
+   <Button text="Limpiar filtros" onAction="#limpiarFiltros"/><Button fx:id="btnActualizar" text="Actualizar datos" onAction="#actualizar"/>
+  </FlowPane>
+  <FlowPane hgap="10" vgap="8"><ComboBox fx:id="cbTipo" prefWidth="345"/><Button fx:id="btnGenerar" text="Guardar PDF con gráfica" styleClass="btn-primario" onAction="#generar"/></FlowPane>
+  <Label fx:id="lblNota" styleClass="subtitulo" wrapText="true"/>
+  <Label fx:id="lblTotales" styleClass="dato" wrapText="true"/>
+  <Label fx:id="lblEstado" wrapText="true"/>
+ </VBox></top>
+ <center><ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true">
+  <content><VBox spacing="18"><padding><Insets top="16" right="8" bottom="16" left="0"/></padding>
+   <VBox styleClass="tarjeta" spacing="8"><padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+    <Label text="Detalle de ventas" styleClass="seccion-titulo"/><Label text="Ingresos confirmados por concierto. El PDF incluye cada detalle de venta." wrapText="true"/>
+    <Label fx:id="lblSinVentas" text="Sin ventas para los filtros seleccionados."/><ImageView fx:id="imgVentas"/>
+   </VBox>
+   <VBox styleClass="tarjeta" spacing="8"><padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+    <Label text="Popularidad de artistas" styleClass="seccion-titulo"/><Label text="Clasificación según la cantidad de boletos vendidos." wrapText="true"/>
+    <Label fx:id="lblSinArtistas" text="No hay artistas con conciertos para estos filtros."/><ImageView fx:id="imgArtistas"/>
+   </VBox>
+   <VBox styleClass="tarjeta" spacing="8"><padding><Insets top="14" right="14" bottom="14" left="14"/></padding>
+    <Label text="Inventario y recaudación por concierto" styleClass="seccion-titulo"/><Label text="Disponibilidad actual y ventas históricas confirmadas; solo se aplican concierto y artista." wrapText="true"/>
+    <Label fx:id="lblSinInventario" text="No hay inventario para los filtros seleccionados."/><ImageView fx:id="imgInventario"/><ImageView fx:id="imgRecaudacion"/>
+   </VBox>
+  </VBox></content>
+ </ScrollPane></center>
+</BorderPane>

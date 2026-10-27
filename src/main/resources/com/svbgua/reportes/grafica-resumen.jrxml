@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+ name="grafica-resumen" pageWidth="1100" pageHeight="440" columnWidth="1060" leftMargin="20" rightMargin="20" topMargin="10" bottomMargin="10">
+ <style name="Base" isDefault="true" fontName="DejaVu Sans" fontSize="10"/>
+    <subDataset name="DatosGrafica">
+        <field name="serie" class="java.lang.String"/>
+        <field name="categoria" class="java.lang.String"/>
+        <field name="valor" class="java.math.BigDecimal"/>
+    </subDataset>
+    <parameter name="GRAFICA" class="java.util.Collection"/>
+    <parameter name="GRAFICA_RECAUDACION" class="java.util.Collection"/>
+    <parameter name="TITULO_GRAFICA" class="java.lang.String"/>
+<detail><band height="0"/></detail>
+<summary><band height="415"><barChart>
+    <chart evaluationTime="Report" isShowLegend="true" customizerClass="com.svbgua.reportes.GraficaCustomizer">
+        <reportElement x="0" y="0" width="1060" height="410"/>
+        <chartTitle><font fontName="DejaVu Sans" size="11" isBold="true"/><titleExpression><![CDATA[$P{TITULO_GRAFICA}]]></titleExpression></chartTitle>
+        <chartSubtitle/>
+        <chartLegend position="Bottom"><font fontName="DejaVu Sans" size="9"/></chartLegend>
+    </chart>
+    <categoryDataset>
+        <dataset><datasetRun subDataset="DatosGrafica"><dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{GRAFICA})]]></dataSourceExpression></datasetRun></dataset>
+        <categorySeries>
+            <seriesExpression><![CDATA[$F{serie}]]></seriesExpression>
+            <categoryExpression><![CDATA[$F{categoria}]]></categoryExpression>
+            <valueExpression><![CDATA[$F{valor}]]></valueExpression>
+        </categorySeries>
+    </categoryDataset>
+    <barPlot isShowLabels="false" isShowTickLabels="true" isShowTickMarks="true">
+        <plot orientation="Horizontal" backcolor="#FFFFFF">
+            <seriesColor seriesOrder="0" color="#6D28D9"/>
+            <seriesColor seriesOrder="1" color="#10B981"/>
+        </plot>
+        <categoryAxisFormat><axisFormat><labelFont><font fontName="DejaVu Sans" size="9"/></labelFont><tickLabelFont><font fontName="DejaVu Sans" size="9"/></tickLabelFont></axisFormat></categoryAxisFormat>
+        <valueAxisFormat><axisFormat><labelFont><font fontName="DejaVu Sans" size="9"/></labelFont><tickLabelFont><font fontName="DejaVu Sans" size="9"/></tickLabelFont></axisFormat></valueAxisFormat>
+        <rangeAxisMinValueExpression><![CDATA[0]]></rangeAxisMinValueExpression>
+    </barPlot>
+</barChart></band></summary>
+</jasperReport>

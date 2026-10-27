@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!-- Terminal de autoservicio. Los pasos se cargan desde sus propios .fxml y se muestran en el centro del marco. -->
+<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+           fx:id="raiz" fx:controller="com.svbgua.kiosco.AutoservicioController" styleClass="raiz">
+    <fx:define>
+        <fx:include fx:id="paso1" source="paso1.fxml"/>
+        <fx:include fx:id="paso2" source="paso2.fxml"/>
+        <fx:include fx:id="paso3" source="paso3.fxml"/>
+        <fx:include fx:id="comprobante" source="comprobante.fxml"/>
+    </fx:define>
+
+    <BorderPane fx:id="marco">
+        <top>
+            <fx:include fx:id="encabezado" source="encabezado.fxml"/>
+        </top>
+    </BorderPane>
+
+    <StackPane fx:id="capaModal" styleClass="capa-resumen" visible="false">
+        <StackPane fx:id="tarjetaModal" styleClass="tarjeta-resumen" maxWidth="-Infinity" maxHeight="-Infinity"/>
+    </StackPane>
+
+    <Label fx:id="lblAviso" styleClass="aviso" visible="false" mouseTransparent="true" wrapText="true"
+           maxWidth="900" StackPane.alignment="BOTTOM_CENTER">
+        <StackPane.margin><Insets top="0" right="20" bottom="150" left="20"/></StackPane.margin>
+    </Label>
+</StackPane>
